@@ -5,7 +5,7 @@ O objetivo principal deste projeto é **estudo e prática** com PactumJS, organi
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## 💻 Tecnologias Utilizadas
 
 - [Node.js](https://nodejs.org/)
 - [PactumJS](https://pactumjs.github.io/)
@@ -50,7 +50,7 @@ pactumjs/
 ├── tests/              # Testes automatizados
 │   └── exemplo1.test.js
 │
-├── utils/              # Funções utilitárias (ex: logger)
+├── utils/              # Funções de suporte (ex: printLog)
 │   └── logger.js
 │
 ├── package.json
