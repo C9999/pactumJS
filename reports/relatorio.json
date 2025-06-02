@@ -1,15 +1,15 @@
 {
   "stats": {
     "suites": 3,
-    "tests": 4,
-    "passes": 3,
+    "tests": 5,
+    "passes": 4,
     "pending": 0,
     "failures": 1,
-    "start": "2025-05-31T17:30:22.427Z",
-    "end": "2025-05-31T17:30:23.402Z",
-    "duration": 975,
-    "testsRegistered": 4,
-    "passPercent": 75,
+    "start": "2025-06-02T12:08:29.704Z",
+    "end": "2025-06-02T12:08:30.793Z",
+    "duration": 1089,
+    "testsRegistered": 5,
+    "passPercent": 80,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "e94a6310-6cca-4423-8133-670bb2f77f58",
+      "uuid": "272c7276-9434-4130-9ed9-2e09de9baaf9",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "e66761db-3545-42f9-9f7e-d952dc8842ad",
+          "uuid": "49a1a25e-af9b-4fa3-83b7-5d714892d0db",
           "title": "Primeiro exemplo com PactumJS",
           "fullFile": "C:\\Users\\momon\\Documents\\dev\\pactumJS\\tests\\exemplo1.test.js",
           "file": "\\tests\\exemplo1.test.js",
@@ -38,7 +38,7 @@
               "title": "Deve retornar 200 da API pública",
               "fullTitle": "Primeiro exemplo com PactumJS Deve retornar 200 da API pública",
               "timedOut": false,
-              "duration": 155,
+              "duration": 295,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,26 +47,26 @@
               "context": null,
               "code": "await pactum.spec()\n    .get('https://jsonplaceholder.typicode.com/posts/1')\n    .expectStatus(200)\n    .expectJsonLike({\n        id: 1\n    });",
               "err": {},
-              "uuid": "f1baa166-79c5-45d8-83ea-b0cafc6e9145",
-              "parentUUID": "e66761db-3545-42f9-9f7e-d952dc8842ad",
+              "uuid": "bc8733c2-7f6f-4cbe-b59c-de735781cdc4",
+              "parentUUID": "49a1a25e-af9b-4fa3-83b7-5d714892d0db",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "f1baa166-79c5-45d8-83ea-b0cafc6e9145"
+            "bc8733c2-7f6f-4cbe-b59c-de735781cdc4"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 155,
+          "duration": 295,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "019ba79e-8ea6-456d-bc79-3da4c65b2873",
+          "uuid": "89a94f5f-c8aa-4bf3-9aa6-121e2a85c426",
           "title": "Exercícios básicos com PactumJS",
           "fullFile": "C:\\Users\\momon\\Documents\\dev\\pactumJS\\tests\\exemplo2.test.js",
           "file": "\\tests\\exemplo2.test.js",
@@ -77,7 +77,7 @@
               "title": "Deve retornar os usuários aleatórios",
               "fullTitle": "Exercícios básicos com PactumJS Deve retornar os usuários aleatórios",
               "timedOut": false,
-              "duration": 214,
+              "duration": 208,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -86,8 +86,8 @@
               "context": null,
               "code": "await spec()\n    .get(api);",
               "err": {},
-              "uuid": "faceaee1-ea3f-4e01-a840-54dc66344d28",
-              "parentUUID": "019ba79e-8ea6-456d-bc79-3da4c65b2873",
+              "uuid": "35693875-de8b-4fda-81c7-f6b69f3a6dc1",
+              "parentUUID": "89a94f5f-c8aa-4bf3-9aa6-121e2a85c426",
               "isHook": false,
               "skipped": false
             },
@@ -95,7 +95,7 @@
               "title": "Deve obter os usuários masculinos",
               "fullTitle": "Exercícios básicos com PactumJS Deve obter os usuários masculinos",
               "timedOut": false,
-              "duration": 400,
+              "duration": 169,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -104,27 +104,46 @@
               "context": null,
               "code": "const response= await spec()\n    .get(api)\n    .withQueryParams('gender', 'male')\n    .expectStatus(200)\n    .expectJsonLike({\n        \"results\": [{\n            \"gender\": \"male\"\n        }]\n    });\n    const users = response.body.results;\n    users.forEach(user => {\n      console.log(user.name.first);\n    });\n    printLog(response);",
               "err": {},
-              "uuid": "1c53820e-bb8b-4da3-9b29-bf95fd91c6ac",
-              "parentUUID": "019ba79e-8ea6-456d-bc79-3da4c65b2873",
+              "uuid": "1b4455c3-04ff-4778-b417-fdd749ed6596",
+              "parentUUID": "89a94f5f-c8aa-4bf3-9aa6-121e2a85c426",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Todos os usuários devem ter o campo name.first",
+              "fullTitle": "Exercícios básicos com PactumJS Todos os usuários devem ter o campo name.first",
+              "timedOut": false,
+              "duration": 186,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await spec()\n    .get(api+'/?results=5')\n    .returns('results');\nfor (const user of response) {\n    console.log('First name:', user.name.first);\n    if (!user.name.first) {\n        throw new Error('Usuário sem first name');\n    }\n}",
+              "err": {},
+              "uuid": "aff9307e-315b-4375-93e0-8a5f451b51ee",
+              "parentUUID": "89a94f5f-c8aa-4bf3-9aa6-121e2a85c426",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "faceaee1-ea3f-4e01-a840-54dc66344d28",
-            "1c53820e-bb8b-4da3-9b29-bf95fd91c6ac"
+            "35693875-de8b-4fda-81c7-f6b69f3a6dc1",
+            "1b4455c3-04ff-4778-b417-fdd749ed6596",
+            "aff9307e-315b-4375-93e0-8a5f451b51ee"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 614,
+          "duration": 563,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "a0a7f257-6bfe-4bf7-8945-55871805937b",
+          "uuid": "2e91aa6c-45cf-4e8e-93b1-72b72249beed",
           "title": "Como o PactumJS trata testes com falha",
           "fullFile": "C:\\Users\\momon\\Documents\\dev\\pactumJS\\tests\\exemplo3.test.js",
           "file": "\\tests\\exemplo3.test.js",
@@ -135,21 +154,21 @@
               "title": "Deve obter os usuários femininos",
               "fullTitle": "Como o PactumJS trata testes com falha Deve obter os usuários femininos",
               "timedOut": false,
-              "duration": 183,
+              "duration": 177,
               "state": "failed",
               "speed": null,
               "pass": false,
               "fail": true,
               "pending": false,
               "context": null,
-              "code": "const response= await spec()\n    .get(api)\n    .withQueryParams('gender', 'male')\n    .expectStatus(201)\n    .expectJsonLike({\n        \"results\": [{\n            \"gender\": \"female\"\n        }]\n    });",
+              "code": "await spec()\n    .get(api)\n    .withQueryParams('gender', 'male')\n    .expectStatus(201)\n    .expectJsonLike({\n        \"results\": [{\n            \"gender\": \"female\"\n        }]\n    });",
               "err": {
                 "message": "AssertionError: HTTP status 200 !== 201\n\n200 !== 201\n",
                 "estack": "AssertionError [ERR_ASSERTION]: HTTP status 200 !== 201\n\n200 !== 201\n\n    at Expect._validateStatus (node_modules\\pactum\\src\\models\\expect.js:106:14)\n    at Expect.validate (node_modules\\pactum\\src\\models\\expect.js:47:10)\n    at Tosser.validateResponse (node_modules\\pactum\\src\\models\\Tosser.js:255:23)\n    at Tosser.validate (node_modules\\pactum\\src\\models\\Tosser.js:219:18)\n    at Tosser.toss (node_modules\\pactum\\src\\models\\Tosser.js:46:18)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
                 "diff": "- 200\n+ 201\n"
               },
-              "uuid": "385fa166-8854-4c30-841e-13ddf03aca3a",
-              "parentUUID": "a0a7f257-6bfe-4bf7-8945-55871805937b",
+              "uuid": "6eefea91-4645-494e-9b25-1b0eeadb4326",
+              "parentUUID": "2e91aa6c-45cf-4e8e-93b1-72b72249beed",
               "isHook": false,
               "skipped": false
             }
@@ -157,11 +176,11 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "385fa166-8854-4c30-841e-13ddf03aca3a"
+            "6eefea91-4645-494e-9b25-1b0eeadb4326"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 183,
+          "duration": 177,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

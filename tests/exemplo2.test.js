@@ -27,4 +27,18 @@ describe('Exercícios básicos com PactumJS', () => {
 
             printLog(response);
     });
+
+    it('Todos os usuários devem ter o campo name.first', async () => {
+        const response = await spec()
+            .get(api+'/?results=5')
+            .returns('results');
+
+        for (const user of response) {
+            console.log('First name:', user.name.first);
+            if (!user.name.first) {
+                throw new Error('Usuário sem first name');
+            }
+        }
+    });
+      
 });
